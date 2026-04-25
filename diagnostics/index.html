@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>40-мин AI-диагностика с CEO LeadUp — для участников интенсива</title>
+<meta name="description" content="Бесплатный 40-минутный разбор вашего кейса с n8n и AI-агентами. Ведёт Владимир Нагин, CEO LeadUp AI. Только для участников интенсива 28-29 апреля."/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://meet.leadup.guru/diagnostics/"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="40-мин AI-диагностика с CEO LeadUp"/>
+<meta property="og:description" content="Разберём ваш кейс с n8n и AI-агентами вживую. Бесплатно, только для участников интенсива."/>
+<meta property="og:url" content="https://meet.leadup.guru/diagnostics/"/>
+<meta property="og:image" content="https://meet.leadup.guru/diagnostics/logo-leadup.png"/>
+<meta property="og:locale" content="ru_RU"/>
+
+<!-- Brand tokens -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap"/>
+
+<style>
+:root {
+  color-scheme: dark;
+
+  /* Signature teal */
+  --teal:            #00E5C7;
+  --teal-hover:      #14F5D7;
+  --teal-pressed:    #00CBB0;
+  --teal-tint:       rgba(0, 229, 199, 0.12);
+  --teal-tint-2:     rgba(0, 229, 199, 0.20);
+  --teal-glow:       0 0 24px rgba(0, 229, 199, 0.45);
+
+  /* Dark surfaces */
+  --bg-0:            #050807;
+  --bg-1:            #0A0F0D;
+  --bg-2:            #0F1512;
+  --bg-3:            #141B18;
+  --bg-4:            #1B2420;
+  --bg-5:            #253029;
+
+  /* Foreground (on dark) */
+  --fg-1:            #EDEFEE;
+  --fg-2:            rgba(237, 239, 238, 0.72);
+  --fg-3:            rgba(237, 239, 238, 0.52);
+  --fg-4:            rgba(237, 239, 238, 0.36);
+
+  /* Borders */
+  --border-1:        rgba(255, 255, 255, 0.06);
+  --border-2:        rgba(255, 255, 255, 0.10);
+  --border-3:        rgba(255, 255, 255, 0.18);
+
+  /* Type */
+  --font-sans:       'Geist', -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+  --font-mono:       'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Radii */
+  --r-sm:            4px;
+  --r-md:            6px;
+  --r-lg:            8px;
+  --r-xl:            10px;
+  --r-2xl:           14px;
+  --r-3xl:           20px;
+  --r-full:          9999px;
+
+  --ease:            cubic-bezier(0.2, 0, 0, 1);
+  --grid-line:       rgba(255, 255, 255, 0.035);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html {
+  background: var(--bg-1);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--fg-1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'ss01', 'cv11';
+}
+body { background: var(--bg-1); color: var(--fg-1); min-height: 100vh; }
+a { color: var(--teal); text-decoration: none; transition: color 120ms var(--ease); }
+a:hover { color: var(--teal-hover); }
+::selection { background: var(--teal-tint-2); color: var(--fg-1); }
+
+/* NAV */
+.nav { position: sticky; top: 0; z-index: 100; background: rgba(10,15,13,0.72); backdrop-filter: blur(18px) saturate(160%); -webkit-backdrop-filter: blur(18px) saturate(160%); border-bottom: 1px solid var(--border-1); }
+.nav-inner { max-width: 1240px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { display: flex; align-items: center; gap: 12px; color: var(--fg-1); font-weight: 600; letter-spacing: -0.01em; font-size: 14px; text-decoration: none; }
+.nav-logo img { height: 24px; width: auto; filter: brightness(10); display: block; }
+.nav-meta { font-family: var(--font-mono); font-size: 11px; color: var(--fg-3); letter-spacing: 0.06em; text-transform: uppercase; }
+.nav-meta .acc { color: var(--teal); }
+
+.btn { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 13px; padding: 8px 16px; border-radius: var(--r-lg); border: 0; cursor: pointer; transition: all 120ms var(--ease); text-decoration: none; font-family: var(--font-sans); }
+.btn-p { background: var(--teal); color: #061210; }
+.btn-p:hover { background: var(--teal-hover); box-shadow: var(--teal-glow); transform: translateY(-1px); }
+.btn-p:active { background: var(--teal-pressed); transform: translateY(0); box-shadow: none; }
+.btn-d { background: var(--bg-4); color: var(--fg-1); border: 1px solid var(--border-2); }
+.btn-d:hover { background: var(--bg-5); border-color: var(--border-3); }
+.btn-lg { height: 48px; font-size: 14px; padding: 0 24px; }
+
+.container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+/* HERO */
+.hero { position: relative; padding: 64px 0 32px; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px); background-size: 48px 48px; mask-image: radial-gradient(ellipse at 50% 50%, black 20%, transparent 70%); pointer-events: none; }
+.hero::after { content: ''; position: absolute; top: -180px; left: 50%; transform: translateX(-50%); width: 700px; height: 500px; background: radial-gradient(circle, rgba(0,229,199,0.14), transparent 55%); pointer-events: none; }
+.hero-inner { position: relative; display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
+.eyebrow { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; background: var(--teal-tint); border: 1px solid rgba(0,229,199,0.25); border-radius: var(--r-full); }
+.eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 8px var(--teal); animation: pl 2s ease-in-out infinite; }
+@keyframes pl { 50% { opacity: 0.4; } }
+.hero-text h1 { font-size: clamp(34px, 4.4vw, 50px); font-weight: 700; line-height: 1.04; letter-spacing: -0.035em; margin: 0 0 14px; color: var(--fg-1); }
+.hero-text h1 .acc { color: var(--teal); }
+.hero-text .lead { font-size: 17px; color: var(--fg-2); line-height: 1.55; margin: 0 0 24px; max-width: 520px; }
+.hero-text .trust { display: flex; gap: 28px; font-family: var(--font-mono); font-size: 11px; color: var(--fg-3); letter-spacing: 0.04em; flex-wrap: wrap; }
+.hero-text .trust strong { color: var(--teal); }
+
+/* PROGRAM STRIP */
+.program-strip { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border-1); border: 1px solid var(--border-1); border-radius: var(--r-xl); overflow: hidden; }
+.ps-cell { background: var(--bg-2); padding: 18px 20px; }
+.ps-cell .l { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-4); margin-bottom: 6px; }
+.ps-cell .v { font-size: 22px; font-weight: 700; letter-spacing: -0.025em; line-height: 1; font-variant-numeric: tabular-nums; color: var(--fg-1); }
+.ps-cell .v .acc { color: var(--teal); }
+.ps-cell .d { font-size: 12px; color: var(--fg-3); margin-top: 6px; }
+
+/* BOOKING */
+.booking { padding: 32px 0 64px; }
+.booking-grid { display: grid; grid-template-columns: 1fr 380px; gap: 20px; align-items: start; }
+
+.iframe-card { background: var(--bg-2); border: 1px solid var(--border-1); border-radius: var(--r-2xl); overflow: hidden; min-height: 720px; }
+.iframe-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; border-bottom: 1px solid var(--border-1); flex-wrap: wrap; gap: 12px; }
+.iframe-head .title { display: flex; flex-direction: column; gap: 2px; }
+.iframe-head .title h2 { font-size: 16px; font-weight: 600; letter-spacing: -0.015em; margin: 0; color: var(--fg-1); }
+.iframe-head .title .sub { font-family: var(--font-mono); font-size: 11px; color: var(--fg-3); letter-spacing: 0.04em; }
+.iframe-head .meta { font-family: var(--font-mono); font-size: 11px; color: var(--fg-3); letter-spacing: 0.04em; display: flex; align-items: center; gap: 8px; }
+.iframe-head .meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 8px var(--teal); }
+
+.iframe-body { padding: 12px 12px 18px; min-height: 640px; }
+.meetings-iframe-container { width: 100%; min-height: 640px; }
+.meetings-iframe-container iframe { width: 100% !important; min-height: 640px; border: 0 !important; }
+
+/* SIDEBAR */
+.sidebar { display: flex; flex-direction: column; gap: 14px; position: sticky; top: 80px; }
+.sb-card { background: var(--bg-2); border: 1px solid var(--border-1); border-radius: var(--r-xl); padding: 22px; }
+.sb-card h4 { font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-3); margin: 0 0 16px; }
+.sb-card ul { list-style: none; padding: 0; margin: 0; }
+.sb-card li { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; font-size: 13px; color: var(--fg-2); line-height: 1.5; border-top: 1px solid var(--border-1); }
+.sb-card li:first-child { border-top: 0; padding-top: 0; }
+.sb-card li .time { font-family: var(--font-mono); font-size: 11px; color: var(--teal); min-width: 42px; letter-spacing: 0.02em; }
+
+.trust-card { background: var(--bg-3); border: 1px solid var(--border-2); border-radius: var(--r-xl); padding: 18px; }
+.trust-card .icon { width: 32px; height: 32px; border-radius: var(--r-md); background: var(--teal-tint); border: 1px solid rgba(0,229,199,0.2); display: grid; place-items: center; color: var(--teal); margin-bottom: 10px; }
+.trust-card h5 { font-size: 14px; font-weight: 600; margin: 0 0 4px; letter-spacing: -0.01em; color: var(--fg-1); }
+.trust-card p { font-size: 12px; color: var(--fg-3); margin: 0; line-height: 1.5; }
+
+.host-card { background: var(--bg-2); border: 1px solid var(--border-1); border-radius: var(--r-xl); padding: 18px; display: flex; align-items: center; gap: 14px; }
+.host-card .avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #00E5C7, #0F1512); display: grid; place-items: center; color: #061210; font-weight: 700; font-size: 14px; flex-shrink: 0; }
+.host-card .who { display: flex; flex-direction: column; gap: 2px; }
+.host-card .who .name { font-size: 13px; font-weight: 600; color: var(--fg-1); letter-spacing: -0.005em; }
+.host-card .who .role { font-family: var(--font-mono); font-size: 10px; color: var(--fg-4); letter-spacing: 0.04em; }
+
+/* FOOTER */
+footer { padding: 32px 0; border-top: 1px solid var(--border-1); }
+.footer-inner { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--fg-4); letter-spacing: 0.04em; flex-wrap: wrap; gap: 12px; }
+.footer-inner a { color: var(--fg-4); text-decoration: none; }
+.footer-inner a:hover { color: var(--fg-2); }
+
+@media (max-width: 960px) {
+  .hero { padding: 40px 0 24px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 24px; }
+  .booking-grid { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .program-strip { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+  .nav-meta { display: none; }
+  .iframe-head { padding: 14px 18px; }
+  .iframe-body { padding: 8px 8px 14px; min-height: 720px; }
+  .meetings-iframe-container, .meetings-iframe-container iframe { min-height: 700px; }
+  .hero-text .trust { gap: 14px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="https://leadup.guru" class="nav-logo" aria-label="LeadUp AI">
+      <img src="logo-leadup.png" alt="LeadUp AI"/>
+    </a>
+    <div class="nav-meta">AI-диагностика · <span class="acc">40 мин</span></div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <span class="eyebrow"><span class="dot"></span>Только для участников интенсива</span>
+        <h1>Разберём ваш кейс с <span class="acc">n8n и AI-агентами</span> за 40 минут</h1>
+        <p class="lead">Личный звонок с CEO LeadUp AI. Покажете задачу — вместе прикинем сценарий автоматизации, оценим ROI и риски. Без презентаций, без «продающих» скриптов.</p>
+        <div class="trust">
+          <span><strong>1:1</strong> с Владимиром Нагиным</span>
+          <span>·</span>
+          <span><strong>40 мин</strong> Google Meet</span>
+          <span>·</span>
+          <span><strong>0 ₽</strong> для участников</span>
+        </div>
+      </div>
+      <div class="program-strip" aria-label="Что входит в звонок">
+        <div class="ps-cell"><div class="l">Формат</div><div class="v">Google <span class="acc">Meet</span></div><div class="d">Запись по запросу</div></div>
+        <div class="ps-cell"><div class="l">Длительность</div><div class="v"><span class="acc">40</span> мин</div><div class="d">Без переноса</div></div>
+        <div class="ps-cell"><div class="l">Ведёт</div><div class="v">CEO <span class="acc">LeadUp</span></div><div class="d">Владимир Нагин</div></div>
+        <div class="ps-cell"><div class="l">Стоимость</div><div class="v"><span class="acc">0</span> ₽</div><div class="d">Только для интенсива</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking">
+  <div class="container">
+    <div class="booking-grid">
+      <!-- LEFT: HUBSPOT IFRAME -->
+      <div class="iframe-card">
+        <div class="iframe-head">
+          <div class="title">
+            <h2>Выберите удобный слот</h2>
+            <div class="sub">Календарь обновляется в реальном времени</div>
+          </div>
+          <div class="meta"><span class="dot"></span>Свободные слоты · МСК</div>
+        </div>
+        <div class="iframe-body">
+          <!-- Start of Meetings Embed Script -->
+          <div class="meetings-iframe-container" data-src="https://explore.leadup.guru/meetings/naginvlad/ai-diagnostics?embed=true"></div>
+          <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+          <!-- End of Meetings Embed Script -->
+        </div>
+      </div>
+
+      <!-- RIGHT SIDEBAR -->
+      <aside class="sidebar">
+        <div class="sb-card">
+          <h4>◆ Что в звонке</h4>
+          <ul>
+            <li><span class="time">10m</span>Опишете 1–2 ключевых процесса, где «болит»</li>
+            <li><span class="time">15m</span>Соберём гипотезу автоматизации в n8n / AI-агентах</li>
+            <li><span class="time">10m</span>Прикинем ROI, сроки и границы пилота</li>
+            <li><span class="time">5m</span>Q&amp;A — без «продающих» скриптов</li>
+          </ul>
+        </div>
+
+        <div class="trust-card">
+          <div class="icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+          </div>
+          <h5>Это не продающий звонок</h5>
+          <p>Если не видим смысла в сотрудничестве — прямо скажем. Цель — дать конкретный план, даже если делать будете сами.</p>
+        </div>
+
+        <div class="trust-card">
+          <div class="icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5L20 7"/></svg>
+          </div>
+          <h5>Что подготовить</h5>
+          <p>Кратко: чем занимается команда, какой процесс хочется автоматизировать, какие инструменты уже используете. Скриншоты — приветствуются.</p>
+        </div>
+
+        <div class="host-card">
+          <div class="avatar" aria-hidden="true">ВН</div>
+          <div class="who">
+            <span class="name">Владимир Нагин</span>
+            <span class="role">CEO · LeadUp AI</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <span>© 2026 LeadUp AI</span>
+    <div style="display:flex; gap:18px;">
+      <a href="https://leadup.guru">leadup.guru</a>
+      <a href="https://t.me/neurosborka">@neurosborka</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
