@@ -66,6 +66,8 @@ curl -I https://meet.leadup.guru/diagnostics/
 
 ## Зачем эта страница
 
-Use case — участники интенсива 28-29 апреля 2026 переходят сюда, чтобы забронировать 40-мин разбор кейса с CEO. Встречи попадают в HubSpot CRM, помогает к ним готовиться Саша (sales).
+Use case — участники интенсива «Hermes Agent — AI-ассистент руководителя» (21 мая 2026, cohort `intensive-hermes-2105`) переходят сюда, чтобы забронировать 40-мин разбор кейса с CEO. Встречи попадают в HubSpot CRM, помогает к ним готовиться Саша (sales).
 
-Связанные тикеты: LEA-506 (зонтик), LEA-507 (вёрстка), LEA-508 (HubSpot scheduler).
+Страница `/diagnostics/` родовая — копию обновляем под текущий cohort, новых страниц не плодим. Источник правды для текста и meta-тегов: `vault/projects/content-media/deliverables/intensive-hermes-agent/landing-copy.md`.
+
+Связанные тикеты: LEA-506 (зонтик), LEA-507 (вёрстка), LEA-508 (HubSpot scheduler), LEA-1887 (cohort hermes-2105 update).
