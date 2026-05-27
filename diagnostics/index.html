@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>AI-диагностика за 40 минут — LeadUp AI</title>
+<meta name="description" content="Разберём ваш кейс с n8n и AI-агентами за 40 минут. Без питчей — честный разбор процессов и реальный ROI. Запишитесь на бесплатную сессию с Владимиром Нагиным."/>
+
+<!-- OpenGraph -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://meet.leadup.guru/diagnostics"/>
+<meta property="og:title" content="AI-диагностика за 40 минут — LeadUp AI"/>
+<meta property="og:description" content="Разберём ваш кейс с n8n и AI-агентами. Без питчей — честный разбор процессов и реальный ROI."/>
+<meta property="og:image" content="https://meet.leadup.guru/og.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AI-диагностика LeadUp AI",
+  "description": "40-минутная бесплатная сессия: разбор процессов, пилот и ROI на n8n и AI-агентах",
+  "provider": {
+    "@type": "Organization",
+    "name": "LeadUp AI",
+    "url": "https://leadup.guru"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "RUB"
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+/* ============================================================
+   Design Tokens — LeadUp AI v3 (D2 · C3 Electric Teal · TS1 Geist)
+   ============================================================ */
+:root {
+  color-scheme: dark;
+  --teal:         #00E5C7;
+  --teal-hover:   #14F5D7;
+  --teal-pressed: #00CBB0;
+  --teal-tint:    rgba(0,229,199,0.12);
+  --teal-tint-2:  rgba(0,229,199,0.20);
+  --teal-glow:    0 0 24px rgba(0,229,199,0.45);
+
+  --bg-0: #050807;
+  --bg-1: #0A0F0D;
+  --bg-2: #0F1512;
+  --bg-3: #141B18;
+  --bg-4: #1B2420;
+  --bg-5: #253029;
+
+  --fg-1: #EDEFEE;
+  --fg-2: rgba(237,239,238,0.72);
+  --fg-3: rgba(237,239,238,0.52);
+  --fg-4: rgba(237,239,238,0.36);
+
+  --border-1: rgba(255,255,255,0.06);
+  --border-2: rgba(255,255,255,0.10);
+  --border-3: rgba(255,255,255,0.18);
+
+  --success: #3EE089;
+  --grid-line: rgba(255,255,255,0.035);
+
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+  --font-mono: 'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
+
+  --r-md: 6px;
+  --r-lg: 8px;
+  --r-xl: 10px;
+  --r-2xl: 14px;
+  --r-3xl: 20px;
+  --r-full: 9999px;
+
+  --ease: cubic-bezier(0.2,0,0,1);
+  --ease-out: cubic-bezier(0.16,1,0.3,1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { min-height: 100vh; }
+html {
+  background: var(--bg-1);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--fg-1);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body { background: var(--bg-1); }
+::selection { background: var(--teal-tint-2); color: var(--fg-1); }
+
+/* ============ NAV ============ */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(10,15,13,0.80);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border-bottom: 1px solid var(--border-1);
+}
+.nav-inner {
+  max-width: 1240px; margin: 0 auto; padding: 14px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo {
+  display: flex; align-items: center; gap: 8px;
+  text-decoration: none; color: var(--fg-1);
+  font-size: 17px; font-weight: 700; letter-spacing: -0.025em;
+}
+.logo-mark {
+  width: 28px; height: 28px; border-radius: var(--r-md);
+  background: linear-gradient(135deg, #00E5C7 0%, #009E8A 100%);
+  display: grid; place-items: center;
+  font-family: var(--font-mono); font-size: 13px; font-weight: 700;
+  color: #061210; flex-shrink: 0;
+}
+.logo-ai { color: var(--teal); }
+.nav-badge {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--fg-4);
+  padding: 3px 8px; border: 1px solid var(--border-1); border-radius: var(--r-full);
+  display: none;
+}
+@media (min-width: 640px) { .nav-badge { display: block; } }
+
+/* ============ BUTTON ============ */
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-sans); font-weight: 600; font-size: 13px;
+  padding: 9px 18px; border-radius: var(--r-lg); border: 0;
+  cursor: pointer; text-decoration: none;
+  transition: all 120ms var(--ease);
+}
+.btn-p { background: var(--teal); color: #061210; }
+.btn-p:hover { background: var(--teal-hover); box-shadow: var(--teal-glow); transform: translateY(-1px); }
+.btn-p:active { background: var(--teal-pressed); transform: none; box-shadow: none; }
+.btn-lg { height: 48px; font-size: 15px; padding: 0 28px; border-radius: var(--r-xl); }
+
+/* ============ HERO ============ */
+.hero {
+  position: relative; padding: 72px 0 52px; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 50% 30%, black 20%, transparent 75%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute; top: -200px; left: 50%; transform: translateX(-50%);
+  width: 800px; height: 600px;
+  background: radial-gradient(circle, rgba(0,229,199,0.13), transparent 55%);
+  pointer-events: none;
+}
+.container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+.hero-inner {
+  position: relative;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 48px; align-items: center;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.07em;
+  text-transform: uppercase; color: var(--teal); margin-bottom: 16px;
+}
+.hero-eyebrow span { color: var(--fg-4); }
+.hero-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 8px var(--teal); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: 0.4; } }
+
+.hero h1 {
+  font-size: clamp(34px, 4.5vw, 52px);
+  font-weight: 700; line-height: 1.04; letter-spacing: -0.035em;
+  margin-bottom: 16px; color: var(--fg-1);
+}
+.hero h1 .acc { color: var(--teal); }
+.hero .lead {
+  font-size: 17px; color: var(--fg-2); line-height: 1.55;
+  max-width: 480px; margin-bottom: 28px;
+}
+.trust-strip {
+  display: flex; flex-wrap: wrap; gap: 20px;
+  font-family: var(--font-mono); font-size: 11px;
+  color: var(--fg-3); letter-spacing: 0.04em;
+}
+.trust-strip strong { color: var(--teal); }
+
+/* Stats grid */
+.stats-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 1px; background: var(--border-1);
+  border: 1px solid var(--border-1); border-radius: var(--r-2xl);
+  overflow: hidden;
+}
+.stat-cell {
+  background: var(--bg-2); padding: 22px 24px;
+}
+.stat-cell .l {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--fg-4); margin-bottom: 8px;
+}
+.stat-cell .v {
+  font-size: 28px; font-weight: 700; letter-spacing: -0.03em;
+  line-height: 1; font-variant-numeric: tabular-nums; color: var(--fg-1);
+}
+.stat-cell .v .acc { color: var(--teal); }
+.stat-cell .d { font-size: 12px; color: var(--fg-3); margin-top: 5px; }
+
+/* ============ BOOKING SECTION ============ */
+.booking { padding: 52px 0 72px; }
+.booking-grid {
+  display: grid; grid-template-columns: 1fr 380px;
+  gap: 24px; align-items: start;
+}
+
+/* IFRAME CARD */
+.iframe-card {
+  background: var(--bg-2); border: 1px solid var(--border-1);
+  border-radius: var(--r-2xl); overflow: hidden;
+}
+.iframe-header {
+  display: flex; align-items: center; gap: 12px;
+  padding: 18px 24px; border-bottom: 1px solid var(--border-1);
+}
+.iframe-header .dot-row { display: flex; gap: 6px; }
+.iframe-header .dot-row span {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--border-2);
+}
+.iframe-header .dot-row span:first-child { background: #FF5D5D; }
+.iframe-header .dot-row span:nth-child(2) { background: #F5B544; }
+.iframe-header .dot-row span:last-child { background: var(--success); }
+.iframe-header .url-bar {
+  flex: 1; background: var(--bg-3); border: 1px solid var(--border-1);
+  border-radius: var(--r-md); padding: 6px 12px;
+  font-family: var(--font-mono); font-size: 11px; color: var(--fg-3);
+  display: flex; align-items: center; gap: 6px;
+}
+.iframe-header .url-bar svg { flex-shrink: 0; }
+.iframe-body { padding: 24px; min-height: 560px; }
+
+/* HubSpot iframe wrapper — no double scroll */
+.meetings-iframe-container {
+  width: 100% !important;
+  overflow: hidden;
+}
+.meetings-iframe-container iframe {
+  width: 100% !important;
+  border: 0 !important;
+  display: block;
+}
+
+/* SIDEBAR */
+.sidebar { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 80px; }
+.sb-card {
+  background: var(--bg-2); border: 1px solid var(--border-1);
+  border-radius: var(--r-xl); padding: 22px;
+}
+.sb-card h4 {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-3);
+  margin-bottom: 16px;
+}
+.sb-card ul { list-style: none; }
+.sb-card li {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 10px 0; font-size: 13px; color: var(--fg-2); line-height: 1.45;
+  border-top: 1px solid var(--border-1);
+}
+.sb-card li:first-child { border-top: 0; padding-top: 0; }
+.sb-card li .time {
+  font-family: var(--font-mono); font-size: 11px; color: var(--teal);
+  min-width: 36px; margin-top: 1px; flex-shrink: 0;
+}
+
+.trust-card {
+  background: var(--bg-3); border: 1px solid var(--border-2);
+  border-radius: var(--r-xl); padding: 20px;
+}
+.trust-card .icon {
+  width: 32px; height: 32px; border-radius: var(--r-md);
+  background: var(--teal-tint); border: 1px solid rgba(0,229,199,0.2);
+  display: grid; place-items: center; color: var(--teal); margin-bottom: 12px;
+}
+.trust-card h5 { font-size: 13px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.01em; }
+.trust-card p { font-size: 12px; color: var(--fg-3); line-height: 1.55; }
+
+/* Speaker card */
+.speaker-card {
+  background: var(--bg-2); border: 1px solid var(--border-1);
+  border-radius: var(--r-xl); padding: 20px;
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.speaker-avatar {
+  width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(135deg, #00E5C7, #009E8A);
+  display: grid; place-items: center;
+  font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: #061210;
+}
+.speaker-name { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+.speaker-role { font-family: var(--font-mono); font-size: 10px; color: var(--fg-4); letter-spacing: 0.04em; margin-bottom: 8px; }
+.speaker-bio { font-size: 12px; color: var(--fg-3); line-height: 1.55; }
+
+/* ============ FOOTER ============ */
+footer {
+  padding: 32px 0; border-top: 1px solid var(--border-1);
+}
+.footer-inner {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--font-mono); font-size: 11px; color: var(--fg-4); letter-spacing: 0.04em;
+  flex-wrap: wrap; gap: 12px;
+}
+.footer-inner a { color: var(--fg-4); text-decoration: none; }
+.footer-inner a:hover { color: var(--teal); }
+.footer-links { display: flex; gap: 20px; }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+  .booking-grid { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .trust-strip { gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="https://leadup.guru" class="logo">
+      <div class="logo-mark">L</div>
+      LeadUp <span class="logo-ai">AI</span>
+    </a>
+    <span class="nav-badge">Диагностика · бесплатно</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-eyebrow">
+          <div class="hero-dot"></div>
+          AI-автоматизация · n8n · агенты
+        </div>
+        <h1>Разберём ваш кейс<br>с n8n за <span class="acc">40 минут</span></h1>
+        <p class="lead">
+          Участники интенсива — выбирайте слот ниже. Владимир Нагин лично разберёт 2–3 ваших процесса, прикинет пилот и ROI. Без питчей и «продающих» скриптов.
+        </p>
+        <div class="trust-strip">
+          <span><strong>118+</strong> команд прошли</span>
+          <span>·</span>
+          <span><strong>40%</strong> честно говорим «не надо»</span>
+          <span>·</span>
+          <span><strong>40 мин</strong> · Google Meet</span>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-cell">
+          <div class="l">Формат</div>
+          <div class="v"><span class="acc">40</span> мин</div>
+          <div class="d">Google Meet · онлайн</div>
+        </div>
+        <div class="stat-cell">
+          <div class="l">Стоимость</div>
+          <div class="v"><span class="acc">0</span> ₽</div>
+          <div class="d">Полностью бесплатно</div>
+        </div>
+        <div class="stat-cell">
+          <div class="l">Ответ</div>
+          <div class="v"><span class="acc">2h</span></div>
+          <div class="d">Среднее время confirm</div>
+        </div>
+        <div class="stat-cell">
+          <div class="l">Результат</div>
+          <div class="v"><span class="acc">3–5</span></div>
+          <div class="d">Точек автоматизации</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking">
+  <div class="container">
+    <div class="booking-grid">
+
+      <!-- LEFT: HubSpot Meetings iframe -->
+      <div class="iframe-card">
+        <div class="iframe-header">
+          <div class="dot-row">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="url-bar">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            explore.leadup.guru/meetings/naginvlad/ai-diagnostics
+          </div>
+        </div>
+        <div class="iframe-body">
+          <!-- Start of Meetings Embed Script -->
+          <div class="meetings-iframe-container" data-src="https://explore.leadup.guru/meetings/naginvlad/ai-diagnostics?embed=true"></div>
+          <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+          <!-- End of Meetings Embed Script -->
+        </div>
+      </div>
+
+      <!-- RIGHT SIDEBAR -->
+      <div class="sidebar">
+
+        <!-- Speaker -->
+        <div class="speaker-card">
+          <div class="speaker-avatar">ВН</div>
+          <div>
+            <div class="speaker-name">Владимир Нагин</div>
+            <div class="speaker-role">CEO · LeadUp AI · n8n-эксперт</div>
+            <div class="speaker-bio">Строит AI-автоматизации с 2022 года. Провёл 118+ диагностик. Автор курса Нейромастерская 2.0.</div>
+          </div>
+        </div>
+
+        <!-- Agenda -->
+        <div class="sb-card">
+          <h4>◆ Что будет в звонке</h4>
+          <ul>
+            <li><span class="time">15m</span>Разбираем 2–3 ваших процесса вживую</li>
+            <li><span class="time">10m</span>Показываем реальные внедрения, не демо</li>
+            <li><span class="time">10m</span>Прикидываем ROI и границы пилота</li>
+            <li><span class="time">5m</span>Q&amp;A — без «продающих» скриптов</li>
+          </ul>
+        </div>
+
+        <!-- Trust 1 -->
+        <div class="trust-card">
+          <div class="icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+          </div>
+          <h5>Это не продающий звонок</h5>
+          <p>Если не видим смысла — прямо скажем. ~40% сессий заканчиваются «вам это пока не нужно».</p>
+        </div>
+
+        <!-- Trust 2 -->
+        <div class="trust-card">
+          <div class="icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
+          </div>
+          <h5>После диагностики — план</h5>
+          <p>Вы получаете конкретный список точек автоматизации с примерным ROI — даже если не идёте дальше.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <span>© 2026 LeadUp AI</span>
+    <div class="footer-links">
+      <a href="https://leadup.guru">leadup.guru</a>
+      <a href="https://t.me/neurosborka">@neurosborka</a>
+      <a href="mailto:hello@leadup.guru">hello@leadup.guru</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
