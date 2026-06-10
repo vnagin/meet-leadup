@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Обсудить проект — LeadUp AI</title>
-  <meta name="description" content="Запишитесь на консультацию с LeadUp AI. Обсудим ваш AI-продукт: от идеи до продакшена. Бесплатная 30-минутная сессия.">
+  <meta name="description" content="Заявка на консультацию LeadUp AI. Заполните форму — изучим за 24 часа и пришлём ссылку на бронирование 30-минутной сессии.">
   <meta name="theme-color" content="#0A0F0D">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://meet.leadup.guru/discuss/">
 
   <meta property="og:title" content="Обсудить проект — LeadUp AI">
-  <meta property="og:description" content="Бесплатная 30-минутная консультация. Разберём вашу задачу и предложим AI-решение.">
+  <meta property="og:description" content="Заявка на консультацию. Изучим в течение 24 часов и пришлём ссылку для брони 30-минутной сессии.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://meet.leadup.guru/discuss/">
   <style>
@@ -327,8 +327,125 @@
       color: var(--fg-4);
     }
 
-    .meetings-iframe-container { width: 100%; min-height: 700px; }
-    .meetings-iframe-container iframe { width: 100% !important; min-height: 700px; border: 0 !important; }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .form-row > .form-group { margin-bottom: 0; }
+    @media (max-width: 560px) {
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .form-row > .form-group { margin-bottom: 20px; }
+    }
+
+    .form-group .req { color: var(--teal); margin-left: 2px; }
+    .form-group .hint {
+      display: block;
+      font-size: 12px;
+      color: var(--fg-4);
+      margin-top: 6px;
+    }
+    .form-group.error input,
+    .form-group.error textarea,
+    .form-group.error select { border-color: #ff6b6b; box-shadow: 0 0 0 1px #ff6b6b; }
+    .form-group.error .field-error {
+      display: block;
+      font-size: 12px;
+      color: #ff8a8a;
+      margin-top: 6px;
+    }
+    .field-error { display: none; }
+
+    .consent-group {
+      position: relative;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin: 8px 0 24px;
+      font-size: 13px;
+      color: var(--fg-2);
+      line-height: 1.5;
+    }
+    .consent-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 1px;
+      accent-color: var(--teal);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .consent-group label { cursor: pointer; }
+    .consent-group.error { color: #ff8a8a; }
+
+    .hp-field {
+      position: absolute !important;
+      left: -10000px !important;
+      top: auto !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+    }
+
+    .form-foot {
+      font-size: 12px;
+      color: var(--fg-4);
+      text-align: center;
+      margin-top: 14px;
+    }
+
+    .form-alert {
+      display: none;
+      position: relative;
+      margin-bottom: 20px;
+      padding: 12px 16px;
+      border-radius: var(--r-lg);
+      font-size: 13px;
+      line-height: 1.45;
+      border: 1px solid;
+    }
+    .form-alert.show { display: block; }
+    .form-alert.error {
+      color: #ffc3c3;
+      background: rgba(255, 107, 107, 0.08);
+      border-color: rgba(255, 107, 107, 0.35);
+    }
+
+    .form-success {
+      position: relative;
+      text-align: center;
+      padding: 8px 0 4px;
+    }
+    .form-success .check {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--teal-tint);
+      color: var(--teal);
+      display: grid;
+      place-items: center;
+      margin: 0 auto 20px;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .form-success h3 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .form-success p {
+      font-size: 15px;
+      color: var(--fg-2);
+      line-height: 1.55;
+      max-width: 460px;
+      margin: 0 auto 8px;
+    }
+    .form-success .muted {
+      font-size: 13px;
+      color: var(--fg-4);
+      margin-top: 18px;
+    }
 
     .btn {
       position: relative;
@@ -469,13 +586,13 @@
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
-          <h3>Вы описываете задачу</h3>
-          <p>Расскажите, что вы хотите автоматизировать: какие процессы, какие боли, какой результат ожидаете. Чем конкретнее — тем лучше.</p>
+          <h3>Вы заполняете заявку</h3>
+          <p>Расскажите, что хотите автоматизировать: процессы, боли, ожидаемый результат, бюджет и сроки. Чем конкретнее — тем точнее подберём решение.</p>
         </div>
         <div class="step">
           <div class="step-num">2</div>
-          <h3>Мы анализируем</h3>
-          <p>Изучаем вашу нишу, конкурентов, техническую реализуемость. Оцениваем, что можно сделать AI, а что — нет. Готовим встречу с конкретными идеями.</p>
+          <h3>Мы анализируем за 24 часа</h3>
+          <p>Изучаем нишу, реализуемость и подходящие инструменты. В рабочие дни в течение 24 часов отвечаем письмом и присылаем ссылку для брони слота встречи.</p>
         </div>
         <div class="step">
           <div class="step-num">3</div>
@@ -493,9 +610,152 @@
         Назад к портфолио
       </a>
       <div class="meet-card">
-        <h2>Выберите удобное время</h2>
-        <div class="meetings-iframe-container" data-src="https://explore.leadup.guru/meetings/naginvlad/ai-diagnostics?embed=true"></div>
-        <script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+        <h2 id="discuss-form-heading">Заявка на консультацию</h2>
+
+        <div id="form-alert" class="form-alert error" role="alert" aria-live="polite"></div>
+
+        <form id="discuss-form" novalidate aria-labelledby="discuss-form-heading">
+          <div class="form-row">
+            <div class="form-group" data-field="name">
+              <label for="f-name">Имя<span class="req">*</span></label>
+              <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="Как вас зовут?">
+              <span class="field-error">Укажите имя</span>
+            </div>
+            <div class="form-group" data-field="email">
+              <label for="f-email">Рабочий email<span class="req">*</span></label>
+              <input type="email" id="f-email" name="email" required autocomplete="email" placeholder="you@company.com">
+              <span class="field-error">Проверьте email</span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group" data-field="contact">
+              <label for="f-contact">Telegram или телефон</label>
+              <input type="text" id="f-contact" name="contact" autocomplete="tel" placeholder="@username или +7…">
+              <span class="hint">Предпочтительный канал связи</span>
+            </div>
+            <div class="form-group" data-field="company">
+              <label for="f-company">Компания / сайт<span class="req">*</span></label>
+              <input type="text" id="f-company" name="company" required autocomplete="organization" placeholder="ООО Ромашка или romashka.ru">
+              <span class="field-error">Укажите компанию или сайт</span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group" data-field="industry">
+              <label for="f-industry">Отрасль / ниша<span class="req">*</span></label>
+              <select id="f-industry" name="industry" required>
+                <option value="" disabled selected>Выберите отрасль</option>
+                <option>E-commerce</option>
+                <option>Услуги / агентство</option>
+                <option>SaaS / IT</option>
+                <option>Производство</option>
+                <option>Образование</option>
+                <option>Финтех</option>
+                <option>Медиа / контент</option>
+                <option>Другое</option>
+              </select>
+              <span class="field-error">Выберите отрасль</span>
+            </div>
+            <div class="form-group" data-field="role">
+              <label for="f-role">Ваша роль<span class="req">*</span></label>
+              <select id="f-role" name="role" required>
+                <option value="" disabled selected>Выберите роль</option>
+                <option>Основатель / CEO</option>
+                <option>Директор по маркетингу</option>
+                <option>Директор по операциям</option>
+                <option>IT-директор / Product</option>
+                <option>HR-директор</option>
+                <option>Другое</option>
+              </select>
+              <span class="field-error">Выберите роль</span>
+            </div>
+          </div>
+
+          <div class="form-group" data-field="team_size">
+            <label for="f-team-size">Размер команды<span class="req">*</span></label>
+            <select id="f-team-size" name="team_size" required>
+              <option value="" disabled selected>Сколько человек в компании</option>
+              <option>До 10 чел.</option>
+              <option>10–50 чел.</option>
+              <option>50–200 чел.</option>
+              <option>200–500 чел.</option>
+              <option>500+ чел.</option>
+            </select>
+            <span class="field-error">Выберите размер команды</span>
+          </div>
+
+          <div class="form-group" data-field="task">
+            <label for="f-task">Какую задачу хотите решить / автоматизировать<span class="req">*</span></label>
+            <textarea id="f-task" name="task" required placeholder="Опишите главную боль или цель — что тормозит рост, что занимает слишком много времени"></textarea>
+            <span class="field-error">Опишите задачу хотя бы парой предложений</span>
+          </div>
+
+          <div class="form-group" data-field="current_state">
+            <label for="f-current-state">Текущее состояние / инструменты</label>
+            <textarea id="f-current-state" name="current_state" placeholder="Что уже есть: ручные процессы, таблицы, CRM, прошлые попытки автоматизации"></textarea>
+            <span class="hint">Необязательно, но помогает не предлагать вам очевидное</span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group" data-field="budget">
+              <label for="f-budget">Бюджет на проект<span class="req">*</span></label>
+              <select id="f-budget" name="budget" required>
+                <option value="" disabled selected>Ориентир по бюджету</option>
+                <option>До 100 000 ₽</option>
+                <option>100 000–300 000 ₽</option>
+                <option>300 000–1 000 000 ₽</option>
+                <option>1 000 000 ₽+</option>
+                <option>Пока не определён</option>
+              </select>
+              <span class="field-error">Укажите бюджет</span>
+            </div>
+            <div class="form-group" data-field="urgency">
+              <label for="f-urgency">Желаемый старт<span class="req">*</span></label>
+              <select id="f-urgency" name="urgency" required>
+                <option value="" disabled selected>Когда нужен результат</option>
+                <option>Уже горит (нужно вчера)</option>
+                <option>В течение месяца</option>
+                <option>1–3 месяца</option>
+                <option>Изучаю рынок, не тороплюсь</option>
+              </select>
+              <span class="field-error">Выберите срочность</span>
+            </div>
+          </div>
+
+          <div class="form-group" data-field="source">
+            <label for="f-source">Как узнали о нас</label>
+            <select id="f-source" name="source">
+              <option value="" selected>—</option>
+              <option>Нейросборка (Telegram)</option>
+              <option>Вебинар / стрим</option>
+              <option>Рекомендация коллеги</option>
+              <option>Поиск Google</option>
+              <option>Соцсети</option>
+              <option>Другое</option>
+            </select>
+          </div>
+
+          <div class="hp-field" aria-hidden="true">
+            <label for="f-website">Сайт (не заполнять)</label>
+            <input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div id="consent-group" class="consent-group" data-field="consent">
+            <input type="checkbox" id="f-consent" name="consent" required>
+            <label for="f-consent">Я согласен(на) на обработку персональных данных в соответствии с <a href="https://leadup.guru/privacy" target="_blank" rel="noopener">Политикой конфиденциальности</a><span class="req">*</span></label>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="f-submit">Отправить заявку</button>
+          <div class="form-foot">Мы ответим в течение 24 часов в рабочие дни</div>
+        </form>
+
+        <div id="form-success" class="form-success" hidden>
+          <div class="check" aria-hidden="true">✓</div>
+          <h3>Заявка получена</h3>
+          <p>Спасибо! Изучим в течение 24 часов в рабочие дни и пришлём на ваш email ссылку для бронирования встречи или ответим лично.</p>
+          <p class="muted">Если вопрос срочный — напишите Саше в Telegram: <a href="https://t.me/sasha_leadup" target="_blank" rel="noopener">@sasha_leadup</a></p>
+        </div>
       </div>
     </div>
   </section>
@@ -518,5 +778,147 @@
     </div>
   </footer>
 
+  <script>
+    (function () {
+      var form = document.getElementById('discuss-form');
+      var success = document.getElementById('form-success');
+      var alertBox = document.getElementById('form-alert');
+      var submitBtn = document.getElementById('f-submit');
+      var ENDPOINT = 'https://n8n.flowstudio.cloud/webhook/discuss-lead';
+
+      if (!form) return;
+
+      var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      var FIELDS = ['name','email','contact','company','industry','role','team_size','task','current_state','budget','urgency','source','consent'];
+
+      function groupFor(field) {
+        if (field === 'consent') return document.getElementById('consent-group');
+        if (field === 'email_format') return document.querySelector('[data-field="email"]');
+        return document.querySelector('[data-field="' + field + '"]');
+      }
+
+      function clearErrors() {
+        document.querySelectorAll('.form-group.error, .consent-group.error').forEach(function (el) {
+          el.classList.remove('error');
+        });
+        alertBox.classList.remove('show');
+        alertBox.textContent = '';
+      }
+
+      function markError(field) {
+        var g = groupFor(field);
+        if (g) g.classList.add('error');
+      }
+
+      function showAlert(msg) {
+        alertBox.textContent = msg;
+        alertBox.classList.add('show');
+      }
+
+      function collect() {
+        var fd = new FormData(form);
+        var data = {};
+        FIELDS.forEach(function (key) {
+          if (key === 'consent') return;
+          var v = fd.get(key);
+          data[key] = v == null ? '' : String(v).trim();
+        });
+        data.consent = !!form.querySelector('#f-consent').checked;
+        data.website = String(fd.get('website') || '').trim();
+        return data;
+      }
+
+      function validateLocal(data) {
+        var bad = [];
+        ['name','email','company','industry','role','team_size','task','budget','urgency'].forEach(function (k) {
+          if (!data[k]) bad.push(k);
+        });
+        if (data.email && !EMAIL_RE.test(data.email)) bad.push('email_format');
+        if (!data.consent) bad.push('consent');
+        return bad;
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        clearErrors();
+
+        var data = collect();
+        var bad = validateLocal(data);
+        if (bad.length) {
+          bad.forEach(markError);
+          showAlert('Проверьте подсвеченные поля и попробуйте снова.');
+          var firstField = bad[0] === 'email_format' ? 'email' : bad[0];
+          var firstGroup = groupFor(firstField);
+          if (firstGroup) {
+            var firstInput = firstGroup.querySelector('input, select, textarea');
+            if (firstInput) firstInput.focus();
+          }
+          return;
+        }
+
+        submitBtn.disabled = true;
+        var originalLabel = submitBtn.textContent;
+        submitBtn.textContent = 'Отправляем…';
+
+        fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(function (res) {
+          return res.json().catch(function () { return { ok: res.ok }; }).then(function (body) {
+            return { status: res.status, body: body || {} };
+          });
+        }).then(function (r) {
+          var body = r.body;
+          if (r.status === 200 && body && body.ok) {
+            form.hidden = true;
+            success.hidden = false;
+            if (success.scrollIntoView) success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return;
+          }
+
+          if (r.status === 400 && body && body.error === 'spam_rejected') {
+            form.hidden = true;
+            success.hidden = false;
+            return;
+          }
+
+          if (r.status === 400 && body && body.error === 'validation_failed' && Array.isArray(body.fields)) {
+            body.fields.forEach(markError);
+            showAlert('Бэкенд просит дозаполнить поля. Проверьте подсвеченные значения.');
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalLabel;
+            return;
+          }
+
+          if (r.status === 500) {
+            form.hidden = true;
+            success.hidden = false;
+            return;
+          }
+
+          showAlert('Не удалось отправить заявку. Попробуйте ещё раз или напишите Саше в Telegram: @sasha_leadup');
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
+        }).catch(function () {
+          showAlert('Сеть не отвечает. Проверьте соединение и попробуйте ещё раз — или напишите Саше в Telegram: @sasha_leadup');
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
+        });
+      });
+
+      form.querySelectorAll('input, select, textarea').forEach(function (el) {
+        el.addEventListener('input', function () {
+          var g = el.closest('.form-group, .consent-group');
+          if (g) g.classList.remove('error');
+        });
+        el.addEventListener('change', function () {
+          var g = el.closest('.form-group, .consent-group');
+          if (g) g.classList.remove('error');
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
