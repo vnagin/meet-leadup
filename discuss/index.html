@@ -9,10 +9,27 @@
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://meet.leadup.guru/discuss/">
 
+  <link rel="icon" type="image/x-icon" href="/assets/favicons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/favicons/site.webmanifest">
+  <link rel="alternate" hreflang="ru" href="https://meet.leadup.guru/discuss/">
+  <link rel="alternate" hreflang="en" href="https://meet.leadup.guru/discuss/en/">
+  <link rel="alternate" hreflang="es" href="https://meet.leadup.guru/discuss/es/">
+  <link rel="alternate" hreflang="x-default" href="https://meet.leadup.guru/discuss/">
+
   <meta property="og:title" content="Обсудить проект — LeadUp AI">
   <meta property="og:description" content="Заявка на консультацию. Изучим в течение 24 часов и пришлём ссылку для брони 30-минутной сессии.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://meet.leadup.guru/discuss/">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:image" content="https://meet.leadup.guru/assets/og/og-discuss-ru.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://meet.leadup.guru/assets/og/og-discuss-ru.png">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap');
 
@@ -546,9 +563,46 @@
       .hero-stats { gap: 28px; }
       .meet-card { padding: 40px 24px; }
     }
+    /* ---------- LANG SWITCHER ---------- */
+    .lang-switcher {
+      position: fixed;
+      top: 16px;
+      right: 24px;
+      z-index: 100;
+      display: flex;
+      gap: 2px;
+      background: var(--bg-3);
+      border: 1px solid var(--border-1);
+      border-radius: 100px;
+      padding: 3px;
+      backdrop-filter: blur(8px);
+    }
+    .lang-switcher a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 100px;
+      color: var(--fg-3);
+      text-decoration: none;
+      transition: all 120ms var(--ease);
+    }
+    .lang-switcher a:hover { color: var(--fg-1); }
+    .lang-switcher a.active {
+      background: var(--teal-tint);
+      color: var(--teal);
+    }
   </style>
 </head>
 <body>
+
+  <nav class="lang-switcher" aria-label="Language switcher">
+    <a href="/discuss/" class="active">RU</a>
+    <a href="/discuss/en/">EN</a>
+    <a href="/discuss/es/">ES</a>
+  </nav>
 
   <section class="hero">
     <div class="hero-bg">
@@ -825,6 +879,7 @@
           data[key] = v == null ? '' : String(v).trim();
         });
         data.consent = !!form.querySelector('#f-consent').checked;
+        data.lang = document.documentElement.getAttribute('lang') || 'ru';
         data.website = String(fd.get('website') || '').trim();
         return data;
       }
