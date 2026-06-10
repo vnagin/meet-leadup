@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discuss your project — LeadUp AI</title>
+  <meta name="description" content="LeadUp AI consultation request. Fill out the form — we'll review it within 24 hours and send a link to book a 30-minute session.">
+  <meta name="theme-color" content="#0A0F0D">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://meet.leadup.guru/discuss/en/">
+
+  <link rel="icon" type="image/x-icon" href="/assets/favicons/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/favicons/site.webmanifest">
+  <link rel="alternate" hreflang="ru" href="https://meet.leadup.guru/discuss/">
+  <link rel="alternate" hreflang="en" href="https://meet.leadup.guru/discuss/en/">
+  <link rel="alternate" hreflang="es" href="https://meet.leadup.guru/discuss/es/">
+  <link rel="alternate" hreflang="x-default" href="https://meet.leadup.guru/discuss/">
+
+  <meta property="og:title" content="Discuss your project — LeadUp AI">
+  <meta property="og:description" content="Consultation request. We'll review it within 24 hours and send a link to book a 30-minute session.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://meet.leadup.guru/discuss/en/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://meet.leadup.guru/assets/og/og-discuss-en.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://meet.leadup.guru/assets/og/og-discuss-en.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap');
+
+    :root {
+      --teal:            #00E5C7;
+      --teal-hover:      #14F5D7;
+      --teal-tint:       rgba(0, 229, 199, 0.12);
+      --teal-tint-2:     rgba(0, 229, 199, 0.20);
+      --teal-glow:       0 0 24px rgba(0, 229, 199, 0.45);
+
+      --bg-0:            #050807;
+      --bg-1:            #0A0F0D;
+      --bg-2:            #0F1512;
+      --bg-3:            #141B18;
+      --bg-4:            #1B2420;
+      --bg-5:            #253029;
+
+      --fg-1:            #EDEFEE;
+      --fg-2:            rgba(237, 239, 238, 0.72);
+      --fg-3:            rgba(237, 239, 238, 0.52);
+      --fg-4:            rgba(237, 239, 238, 0.36);
+
+      --border-1:        rgba(255, 255, 255, 0.06);
+      --border-2:        rgba(255, 255, 255, 0.10);
+      --border-3:        rgba(255, 255, 255, 0.18);
+
+      --font-sans:       'Geist', -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+      --font-mono:       'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
+
+      --r-lg:            8px;
+      --r-xl:            10px;
+      --r-2xl:           14px;
+      --r-3xl:           20px;
+
+      --ease:            cubic-bezier(0.2, 0, 0, 1);
+      --shadow-3:        0 12px 32px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06);
+      --shadow-teal:     0 0 0 1px var(--teal), 0 8px 24px rgba(0, 229, 199, 0.28);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      background: var(--bg-1);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--fg-1);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background: var(--bg-1);
+      color: var(--fg-1);
+      min-height: 100vh;
+    }
+
+    a { color: var(--teal); text-decoration: none; transition: color 120ms var(--ease); }
+    a:hover { color: var(--teal-hover); }
+
+    ::selection { background: var(--teal-tint-2); color: var(--fg-1); }
+
+    :where(button, a, input, select, textarea, [tabindex]):focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--bg-1), 0 0 0 4px var(--teal);
+      border-radius: 4px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      position: relative;
+      padding: 120px 0 80px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .hero-bg .grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse at 50% 30%, black 35%, transparent 72%);
+    }
+    .hero-bg .glow {
+      position: absolute;
+      left: 50%;
+      top: -240px;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(0,229,199,0.15) 0%, transparent 50%);
+    }
+    .pill {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg-2);
+      padding: 6px 14px;
+      border: 1px solid var(--border-2);
+      border-radius: 100px;
+      background: rgba(20,27,24,0.5);
+      backdrop-filter: blur(8px);
+      margin-bottom: 24px;
+    }
+    .pill .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 10px var(--teal);
+      animation: pill-pulse 2s ease-in-out infinite;
+    }
+    @keyframes pill-pulse { 50% { opacity: 0.4; } }
+    .hero h1 {
+      position: relative;
+      font-size: clamp(36px, 6vw, 60px);
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      line-height: 1.04;
+      margin-bottom: 20px;
+    }
+    .hero h1 .acc {
+      background: linear-gradient(90deg, #14F5D7, #00E5C7, #00CBB0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+    .hero p {
+      position: relative;
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--fg-2);
+      max-width: 620px;
+      margin: 0 auto 36px;
+    }
+    .hero-stats {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat-val {
+      font-size: 44px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      color: var(--teal);
+      font-variant-numeric: tabular-nums;
+    }
+    .hero-stat-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--fg-4);
+      margin-top: 8px;
+    }
+
+    /* ---------- HOW IT WORKS ---------- */
+    .section { padding: 0 0 100px; }
+    .section-h { margin-bottom: 52px; }
+    .section-h.center { text-align: center; }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-h h2 {
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+    .section-h p {
+      font-size: 16px;
+      color: var(--fg-2);
+      max-width: 540px;
+      margin: 0 auto;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .step {
+      background: var(--bg-2);
+      border: 1px solid var(--border-1);
+      border-radius: var(--r-2xl);
+      padding: 36px 28px;
+      text-align: center;
+      transition: all 200ms var(--ease);
+    }
+    .step:hover {
+      border-color: var(--border-3);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-3);
+    }
+    .step-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--teal-tint);
+      color: var(--teal);
+      font-size: 18px;
+      font-weight: 700;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 20px;
+    }
+    .step h3 { font-size: 18px; font-weight: 600; margin-bottom: 10px; }
+    .step p { font-size: 14px; color: var(--fg-3); line-height: 1.55; }
+
+    /* ---------- FORM ---------- */
+    .meet-section { padding: 0 0 100px; }
+    .meet-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, var(--bg-2), var(--bg-3));
+      border: 1px solid rgba(0,229,199,0.2);
+      border-radius: var(--r-3xl);
+      padding: 64px 48px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .meet-card::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0,229,199,0.1), transparent 50%);
+      pointer-events: none;
+    }
+    .meet-card h2 {
+      position: relative;
+      font-size: clamp(26px, 3.5vw, 36px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .form-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--fg-2);
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: var(--font-sans);
+      font-size: 15px;
+      color: var(--fg-1);
+      background: var(--bg-4);
+      border: 1px solid var(--border-1);
+      border-radius: var(--r-lg);
+      transition: all 120ms var(--ease);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 1px var(--teal);
+      outline: none;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--fg-4);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .form-row > .form-group { margin-bottom: 0; }
+    @media (max-width: 560px) {
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .form-row > .form-group { margin-bottom: 20px; }
+    }
+
+    .form-group .req { color: var(--teal); margin-left: 2px; }
+    .form-group .hint {
+      display: block;
+      font-size: 12px;
+      color: var(--fg-4);
+      margin-top: 6px;
+    }
+    .form-group.error input,
+    .form-group.error textarea,
+    .form-group.error select { border-color: #ff6b6b; box-shadow: 0 0 0 1px #ff6b6b; }
+    .form-group.error .field-error {
+      display: block;
+      font-size: 12px;
+      color: #ff8a8a;
+      margin-top: 6px;
+    }
+    .field-error { display: none; }
+
+    .consent-group {
+      position: relative;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin: 8px 0 24px;
+      font-size: 13px;
+      color: var(--fg-2);
+      line-height: 1.5;
+    }
+    .consent-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 1px;
+      accent-color: var(--teal);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .consent-group label { cursor: pointer; }
+    .consent-group.error { color: #ff8a8a; }
+
+    .hp-field {
+      position: absolute !important;
+      left: -10000px !important;
+      top: auto !important;
+      width: 1px !important;
+      height: 1px !important;
+      overflow: hidden !important;
+    }
+
+    .form-foot {
+      font-size: 12px;
+      color: var(--fg-4);
+      text-align: center;
+      margin-top: 14px;
+    }
+
+    .form-alert {
+      display: none;
+      position: relative;
+      margin-bottom: 20px;
+      padding: 12px 16px;
+      border-radius: var(--r-lg);
+      font-size: 13px;
+      line-height: 1.45;
+      border: 1px solid;
+    }
+    .form-alert.show { display: block; }
+    .form-alert.error {
+      color: #ffc3c3;
+      background: rgba(255, 107, 107, 0.08);
+      border-color: rgba(255, 107, 107, 0.35);
+    }
+
+    .form-success {
+      position: relative;
+      text-align: center;
+      padding: 8px 0 4px;
+    }
+    .form-success .check {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--teal-tint);
+      color: var(--teal);
+      display: grid;
+      place-items: center;
+      margin: 0 auto 20px;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .form-success h3 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .form-success p {
+      font-size: 15px;
+      color: var(--fg-2);
+      line-height: 1.55;
+      max-width: 460px;
+      margin: 0 auto 8px;
+    }
+    .form-success .muted {
+      font-size: 13px;
+      color: var(--fg-4);
+      margin-top: 18px;
+    }
+
+    .btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 32px;
+      border-radius: var(--r-lg);
+      border: 0;
+      cursor: pointer;
+      transition: all 120ms var(--ease);
+      text-decoration: none;
+      white-space: nowrap;
+      font-family: var(--font-sans);
+      width: 100%;
+    }
+    .btn-primary {
+      background: var(--teal);
+      color: #061210;
+    }
+    .btn-primary:hover {
+      background: var(--teal-hover);
+      box-shadow: var(--teal-glow);
+      transform: translateY(-1px);
+    }
+
+    /* ---------- BACK LINK ---------- */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--fg-3);
+      font-weight: 500;
+      margin-bottom: 32px;
+    }
+    .back-link:hover { color: var(--fg-1); }
+    .back-link svg { width: 14px; height: 14px; }
+
+    /* ---------- FOOTER ---------- */
+    .footer {
+      border-top: 1px solid var(--border-1);
+      padding: 48px 0 32px;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.025em;
+      color: var(--fg-1);
+    }
+    .footer-mark {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: var(--teal);
+      color: #061210;
+      font-weight: 900;
+      font-family: var(--font-mono);
+      font-size: 15px;
+      display: grid;
+      place-items: center;
+    }
+    .footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-links a {
+      font-size: 13px;
+      color: var(--fg-3);
+      text-decoration: none;
+      transition: color 120ms var(--ease);
+    }
+    .footer-links a:hover { color: var(--fg-1); }
+    .footer-copy {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--fg-4);
+      letter-spacing: 0.04em;
+      width: 100%;
+      text-align: center;
+      margin-top: 16px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-1);
+    }
+
+    @media (max-width: 768px) {
+      .hero { padding: 80px 0 48px; }
+      .hero-stats { gap: 28px; }
+      .meet-card { padding: 40px 24px; }
+    }
+    /* ---------- LANG SWITCHER ---------- */
+    .lang-switcher {
+      position: fixed;
+      top: 16px;
+      right: 24px;
+      z-index: 100;
+      display: flex;
+      gap: 2px;
+      background: var(--bg-3);
+      border: 1px solid var(--border-1);
+      border-radius: 100px;
+      padding: 3px;
+      backdrop-filter: blur(8px);
+    }
+    .lang-switcher a {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 100px;
+      color: var(--fg-3);
+      text-decoration: none;
+      transition: all 120ms var(--ease);
+    }
+    .lang-switcher a:hover { color: var(--fg-1); }
+    .lang-switcher a.active {
+      background: var(--teal-tint);
+      color: var(--teal);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="lang-switcher" aria-label="Language switcher">
+    <a href="/discuss/">RU</a>
+    <a href="/discuss/en/" class="active">EN</a>
+    <a href="/discuss/es/">ES</a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="grid"></div>
+      <div class="glow"></div>
+    </div>
+    <div class="container">
+      <div class="pill"><span class="dot"></span>LeadUp AI · Consultation</div>
+      <h1>Let's discuss<br><span class="acc">your AI project</span></h1>
+      <p>A free 30-minute consultation. We'll unpack your challenge, assess feasibility and propose a concrete action plan — no fluff, no generic talk.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-val">30</div>
+          <div class="hero-stat-label">Minutes</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-val">Free</div>
+          <div class="hero-stat-label">Consultation</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-val">24h</div>
+          <div class="hero-stat-label">Response</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-h center">
+        <div class="eyebrow">◆ How it works</div>
+        <h2>Three steps to your AI solution</h2>
+        <p>No bureaucracy. You fill out the form — we review it and get in touch.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>You submit a request</h3>
+          <p>Tell us what you want to automate: processes, pain points, expected outcome, budget and timeline. The more specific you are, the more precise our solution.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>We analyze within 24 hours</h3>
+          <p>We study your niche, feasibility and the right tools. On business days, within 24 hours, we reply by email and send a link to book a meeting slot.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Meeting and plan</h3>
+          <p>A 30-minute call: we present the solution, discuss architecture, timeline and budget. You leave with a roadmap, not a “we'll think about it.”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="meet-section">
+    <div class="container">
+      <a href="https://portfolio.leadup.guru/en/" class="back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Back to portfolio
+      </a>
+      <div class="meet-card">
+        <h2 id="discuss-form-heading">Consultation request</h2>
+
+        <div id="form-alert" class="form-alert error" role="alert" aria-live="polite"></div>
+
+        <form id="discuss-form" novalidate aria-labelledby="discuss-form-heading">
+          <div class="form-row">
+            <div class="form-group" data-field="name">
+              <label for="f-name">Name<span class="req">*</span></label>
+              <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="What's your name?">
+              <span class="field-error">Enter your name</span>
+            </div>
+            <div class="form-group" data-field="email">
+              <label for="f-email">Work email<span class="req">*</span></label>
+              <input type="email" id="f-email" name="email" required autocomplete="email" placeholder="you@company.com">
+              <span class="field-error">Check your email</span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group" data-field="contact">
+              <label for="f-contact">Telegram or phone</label>
+              <input type="text" id="f-contact" name="contact" autocomplete="tel" placeholder="@username or +1…">
+              <span class="hint">Preferred contact channel</span>
+            </div>
+            <div class="form-group" data-field="company">
+              <label for="f-company">Company / website<span class="req">*</span></label>
+              <input type="text" id="f-company" name="company" required autocomplete="organization" placeholder="Acme Inc. or acme.com">
+              <span class="field-error">Enter company or website</span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group" data-field="industry">
+              <label for="f-industry">Industry / niche<span class="req">*</span></label>
+              <select id="f-industry" name="industry" required>
+                <option value="" disabled selected>Select industry</option>
+                <option value="E-commerce">E-commerce</option>
+                <option value="Услуги / агентство">Services / agency</option>
+                <option value="SaaS / IT">SaaS / IT</option>
+                <option value="Производство">Manufacturing</option>
+                <option value="Образование">Education</option>
+                <option value="Финтех">Fintech</option>
+                <option value="Медиа / контент">Media / content</option>
+                <option value="Другое">Other</option>
+              </select>
+              <span class="field-error">Select industry</span>
+            </div>
+            <div class="form-group" data-field="role">
+              <label for="f-role">Your role<span class="req">*</span></label>
+              <select id="f-role" name="role" required>
+                <option value="" disabled selected>Select role</option>
+                <option value="Основатель / CEO">Founder / CEO</option>
+                <option value="Директор по маркетингу">Marketing Director</option>
+                <option value="Директор по операциям">Operations Director</option>
+                <option value="IT-директор / Product">IT Director / Product</option>
+                <option value="HR-директор">HR Director</option>
+                <option value="Другое">Other</option>
+              </select>
+              <span class="field-error">Select role</span>
+            </div>
+          </div>
+
+          <div class="form-group" data-field="team_size">
+            <label for="f-team-size">Team size<span class="req">*</span></label>
+            <select id="f-team-size" name="team_size" required>
+              <option value="" disabled selected>How many people in the company</option>
+              <option value="До 10 чел.">Up to 10</option>
+              <option value="10–50 чел.">10–50</option>
+              <option value="50–200 чел.">50–200</option>
+              <option value="200–500 чел.">200–500</option>
+              <option value="500+ чел.">500+</option>
+            </select>
+            <span class="field-error">Select team size</span>
+          </div>
+
+          <div class="form-group" data-field="task">
+            <label for="f-task">What do you want to solve / automate<span class="req">*</span></label>
+            <textarea id="f-task" name="task" required placeholder="Describe the main pain or goal — what's slowing growth, what takes too much time"></textarea>
+            <span class="field-error">Describe the task in at least a couple of sentences</span>
+          </div>
+
+          <div class="form-group" data-field="current_state">
+            <label for="f-current-state">Current state / tools</label>
+            <textarea id="f-current-state" name="current_state" placeholder="What you already have: manual processes, spreadsheets, CRM, past automation attempts"></textarea>
+            <span class="hint">Optional, but helps us skip the obvious</span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group" data-field="budget">
+              <label for="f-budget">Project budget<span class="req">*</span></label>
+              <select id="f-budget" name="budget" required>
+                <option value="" disabled selected>Budget range</option>
+                <option value="До 100 000 ₽">Up to ₽100,000</option>
+                <option value="100 000–300 000 ₽">₽100,000–300,000</option>
+                <option value="300 000–1 000 000 ₽">₽300,000–1,000,000</option>
+                <option value="1 000 000 ₽+">₽1,000,000+</option>
+                <option value="Пока не определён">Not yet defined</option>
+              </select>
+              <span class="field-error">Select a budget</span>
+            </div>
+            <div class="form-group" data-field="urgency">
+              <label for="f-urgency">Desired start<span class="req">*</span></label>
+              <select id="f-urgency" name="urgency" required>
+                <option value="" disabled selected>When you need results</option>
+                <option value="Уже горит (нужно вчера)">Urgent (needed yesterday)</option>
+                <option value="В течение месяца">Within a month</option>
+                <option value="1–3 месяца">1–3 months</option>
+                <option value="Изучаю рынок, не тороплюсь">Exploring, no rush</option>
+              </select>
+              <span class="field-error">Select urgency</span>
+            </div>
+          </div>
+
+          <div class="form-group" data-field="source">
+            <label for="f-source">How you heard about us</label>
+            <select id="f-source" name="source">
+              <option value="" selected>—</option>
+              <option value="Нейросборка (Telegram)">Neyrosborka (Telegram)</option>
+              <option value="Вебинар / стрим">Webinar / stream</option>
+              <option value="Рекомендация коллеги">Colleague referral</option>
+              <option value="Поиск Google">Google search</option>
+              <option value="Соцсети">Social media</option>
+              <option value="Другое">Other</option>
+            </select>
+          </div>
+
+          <div class="hp-field" aria-hidden="true">
+            <label for="f-website">Website (do not fill)</label>
+            <input type="text" id="f-website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div id="consent-group" class="consent-group" data-field="consent">
+            <input type="checkbox" id="f-consent" name="consent" required>
+            <label for="f-consent">I consent to the processing of my personal data in accordance with the <a href="https://leadup.guru/privacy" target="_blank" rel="noopener">Privacy Policy</a><span class="req">*</span></label>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="f-submit">Submit request</button>
+          <div class="form-foot">We'll reply within 24 hours on business days</div>
+        </form>
+
+        <div id="form-success" class="form-success" hidden>
+          <div class="check" aria-hidden="true">✓</div>
+          <h3>Request received</h3>
+          <p>Thank you! We'll review it within 24 hours on business days and email you a link to book the meeting, or reply personally.</p>
+          <p class="muted">If it's urgent — message Sasha on Telegram: <a href="https://t.me/sasha_leadup" target="_blank" rel="noopener">@sasha_leadup</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-mark">L</div>
+          LeadUp AI
+        </div>
+        <div class="footer-links">
+          <a href="https://leadup.guru" target="_blank" rel="noopener">leadup.guru</a>
+          <a href="https://blog.leadup.guru" target="_blank" rel="noopener">Blog</a>
+          <a href="https://t.me/aibusinesshub" target="_blank" rel="noopener">AI Business Hub</a>
+          <a href="https://github.com/leadup-ai" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <div class="footer-copy">&copy; 2026 LeadUp AI. AI-first company.</div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('discuss-form');
+      var success = document.getElementById('form-success');
+      var alertBox = document.getElementById('form-alert');
+      var submitBtn = document.getElementById('f-submit');
+      var ENDPOINT = 'https://n8n.flowstudio.cloud/webhook/discuss-lead';
+
+      if (!form) return;
+
+      var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      var FIELDS = ['name','email','contact','company','industry','role','team_size','task','current_state','budget','urgency','source','consent'];
+
+      function groupFor(field) {
+        if (field === 'consent') return document.getElementById('consent-group');
+        if (field === 'email_format') return document.querySelector('[data-field="email"]');
+        return document.querySelector('[data-field="' + field + '"]');
+      }
+
+      function clearErrors() {
+        document.querySelectorAll('.form-group.error, .consent-group.error').forEach(function (el) {
+          el.classList.remove('error');
+        });
+        alertBox.classList.remove('show');
+        alertBox.textContent = '';
+      }
+
+      function markError(field) {
+        var g = groupFor(field);
+        if (g) g.classList.add('error');
+      }
+
+      function showAlert(msg) {
+        alertBox.textContent = msg;
+        alertBox.classList.add('show');
+      }
+
+      function collect() {
+        var fd = new FormData(form);
+        var data = {};
+        FIELDS.forEach(function (key) {
+          if (key === 'consent') return;
+          var v = fd.get(key);
+          data[key] = v == null ? '' : String(v).trim();
+        });
+        data.consent = !!form.querySelector('#f-consent').checked;
+        data.lang = document.documentElement.getAttribute('lang') || 'ru';
+        data.website = String(fd.get('website') || '').trim();
+        return data;
+      }
+
+      function validateLocal(data) {
+        var bad = [];
+        ['name','email','company','industry','role','team_size','task','budget','urgency'].forEach(function (k) {
+          if (!data[k]) bad.push(k);
+        });
+        if (data.email && !EMAIL_RE.test(data.email)) bad.push('email_format');
+        if (!data.consent) bad.push('consent');
+        return bad;
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        clearErrors();
+
+        var data = collect();
+        var bad = validateLocal(data);
+        if (bad.length) {
+          bad.forEach(markError);
+          showAlert('Please check the highlighted fields and try again.');
+          var firstField = bad[0] === 'email_format' ? 'email' : bad[0];
+          var firstGroup = groupFor(firstField);
+          if (firstGroup) {
+            var firstInput = firstGroup.querySelector('input, select, textarea');
+            if (firstInput) firstInput.focus();
+          }
+          return;
+        }
+
+        submitBtn.disabled = true;
+        var originalLabel = submitBtn.textContent;
+        submitBtn.textContent = 'Sending…';
+
+        fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(data)
+        }).then(function (res) {
+          return res.json().catch(function () { return { ok: res.ok }; }).then(function (body) {
+            return { status: res.status, body: body || {} };
+          });
+        }).then(function (r) {
+          var body = r.body;
+          if (r.status === 200 && body && body.ok) {
+            form.hidden = true;
+            success.hidden = false;
+            if (success.scrollIntoView) success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return;
+          }
+
+          if (r.status === 400 && body && body.error === 'spam_rejected') {
+            form.hidden = true;
+            success.hidden = false;
+            return;
+          }
+
+          if (r.status === 400 && body && body.error === 'validation_failed' && Array.isArray(body.fields)) {
+            body.fields.forEach(markError);
+            showAlert('Please complete the highlighted fields.');
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalLabel;
+            return;
+          }
+
+          if (r.status === 500) {
+            form.hidden = true;
+            success.hidden = false;
+            return;
+          }
+
+          showAlert('Could not submit the request. Please try again or message Sasha on Telegram: @sasha_leadup');
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
+        }).catch(function () {
+          showAlert('The network is not responding. Check your connection and try again — or message Sasha on Telegram: @sasha_leadup');
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalLabel;
+        });
+      });
+
+      form.querySelectorAll('input, select, textarea').forEach(function (el) {
+        el.addEventListener('input', function () {
+          var g = el.closest('.form-group, .consent-group');
+          if (g) g.classList.remove('error');
+        });
+        el.addEventListener('change', function () {
+          var g = el.closest('.form-group, .consent-group');
+          if (g) g.classList.remove('error');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
